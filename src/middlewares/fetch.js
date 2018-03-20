@@ -4,5 +4,10 @@ export default function (url, originOptions) {
     ...originOptions
   }
 
-  return fetch(url, options).then(res => res.json())
+  return fetch(url, options).then(response => {
+    if (response.headers.get('content-type').includes('application/json')) {
+      return response.json()
+    }
+    return response.text()
+  })
 }
