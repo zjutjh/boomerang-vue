@@ -15,6 +15,7 @@ module.exports = function (app) {
       // const pathname = req._parsedUrl.pathname
       const apiName = apiPathMap[wildcard]
       const mockFile = path.resolve(mockPath, apiName + '.js')
+      delete require.cache[mockFile] // delete cache, so you can edit mock data any time
       const result = require(mockFile)(req)
       res.json(result)
     })
