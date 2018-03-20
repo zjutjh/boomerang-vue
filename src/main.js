@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import API from './api/index'
+import fetch from './middlewares/fetch'
 
 Vue.config.productionTip = false
+Vue.prototype.API = API
+Vue.prototype.fetch = fetch
 
 /* eslint-disable no-new */
 new Vue({

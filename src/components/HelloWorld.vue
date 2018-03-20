@@ -88,8 +88,16 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      mockMsg: ''
     }
+  },
+  mounted: async function () {
+    const url = this.API('getUserInfo', {
+      id: 10086
+    })
+    const result = await this.fetch(url)
+    this.msg = `Hello, No.${result.data.id}, User: ${result.data.name}`
   }
 }
 </script>
