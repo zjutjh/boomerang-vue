@@ -1,0 +1,46 @@
+@import "../../../../common/_variables.scss";
+.m-tabbar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $theme-green;
+  height: 4.4rem;
+
+  .list {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      &>img {
+        width: 2.4rem;
+
+        &.add {
+          margin-top: -2.4rem;
+          width: 4.4rem;
+          background-color: white;
+          border-radius: 50%;
+          border: .4rem solid $theme-green;
+        }
+      }
+
+      &>div {
+        margin-top: .3rem;
+        font-size: 1.2rem;
+        color: white;
+      }
+    }
+  }
+}
