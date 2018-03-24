@@ -1,0 +1,22 @@
+@mixin border-bottom-1px($color) {
+  position: relative;
+  border-bottom: 1px solid $color;
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    border-bottom: 0;
+    &::before {
+      content: '';
+      width: 200%;
+      height: 200%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-bottom: 1px solid $color;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      padding: 1px;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+  }
+}

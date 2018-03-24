@@ -13,12 +13,21 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%;
+}
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 </style>
