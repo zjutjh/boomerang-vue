@@ -1,17 +1,13 @@
 <template>
   <div class="container">
-    <search-bar></search-bar>
-    寻物
+    搜索
   </div>
 </template>
 
 <script>
-import searchBar from '../../components/search-bar'
-
 export default {
-  name: 'lost',
+  name: 'search',
   components: {
-    searchBar
   },
   data () {
     return {

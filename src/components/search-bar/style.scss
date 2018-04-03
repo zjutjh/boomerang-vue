@@ -1,0 +1,28 @@
+@import "../../common/_variables.scss";
+@import "../../common/functions";
+
+.m-search {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 3.6rem;
+  padding: 0 1rem;
+
+  @include border-bottom-1px(#eee);
+
+  .search {
+    flex: 1;
+    font-size: 1.6rem;
+    color: #555;
+  }
+
+  .search-icon {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $theme-green;
+  }
+
+  input::placeholder {
+    color: #c8c7cd;
+  }
+}
