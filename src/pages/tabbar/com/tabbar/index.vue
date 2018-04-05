@@ -1,7 +1,7 @@
 <template>
-  <div class="m-tabbar">
+  <div class="container m-tabbar">
     <ul class="list">
-      <li v-for="(item, index) in list" v-bind:key="'tabbar_' + index" class="item" @click="onClick(index)">
+      <li v-for="(item, index) in list" v-bind:key="'tabbar_' + index" class="item" :class="{active: item.active}" @click="onClick(index)">
         <template v-if="item.add !== true">
           <img class="icon" :src="item.active ? item.hover : item.icon"/>
           <div class="text">{{item.text}}</div>

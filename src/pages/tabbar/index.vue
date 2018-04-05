@@ -1,39 +1,38 @@
 <template>
   <div class="container">
-    <tab :list="tabList" :index="tabIndex" @onClick="onTabClick"/>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
+    <tabbar :list="tabbarList" :index="tabbarIndex" @onClick="onTabbarClick"></tabbar>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import tabbar from './com/tabbar'
 import * as Constants from './constant'
-import tab from './com/tab'
 
 export default {
-  name: 'index',
   components: {
-    tab
+    tabbar
   },
   data () {
     return {
     }
   },
   methods: {
-    changeTab (index) {
-      this.$store.commit(Constants.INDEX_CHANGE_TAB_INDEX, {
+    changeTabbar (index) {
+      this.$store.commit(Constants.TABBAR_CHANGE_TABBAR_INDEX, {
         index
       })
     },
-    onTabClick: function (index) {
-      const item = this.tabList[index]
+    onTabbarClick: function (index) {
+      const item = this.tabbarList[index]
       if (!item) {
-        throw new Error('Cannot find tab item!')
+        throw new Error('Cannot find tab-bar item!')
       }
-      // 改变tab激活状态/序号
-      this.changeTab(index)
+      // 改变tabbar激活状态/序号
+      this.changeTabbar(index)
       // 改变路径
       this.$router.push({ path: item.path })
     }
@@ -41,8 +40,8 @@ export default {
   computed: {
     // 使用对象展开运算符将 state 混入 computed 对象中
     ...mapState({
-      tabIndex: (state) => state.index.tabIndex,
-      tabList: (state) => state.index.tabList
+      tabbarIndex: (state) => state.tabbar.tabbarIndex,
+      tabbarList: (state) => state.tabbar.tabbarList
     })
   }
 }

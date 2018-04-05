@@ -6,8 +6,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: $theme-green;
-  height: 4.4rem;
+  background: white;
+  height: 4.9rem;
+  border-top: 1px solid rgba(0, 0, 0, .1);
 
   .list {
     flex: 1;
@@ -25,21 +26,19 @@
       height: 100%;
 
       &>img {
-        width: 2.4rem;
-
-        &.add {
-          margin-top: -2.4rem;
-          width: 4.4rem;
-          background-color: white;
-          border-radius: 50%;
-          border: .4rem solid $theme-green;
-        }
+        height: 2.4rem;
       }
 
       &>div {
         margin-top: .3rem;
-        font-size: 1.2rem;
-        color: white;
+        font-size: 1rem;
+        color: #7F8389;
+      }
+
+      &.active {
+        &>div {
+          color: $theme-green;
+        }
       }
     }
   }

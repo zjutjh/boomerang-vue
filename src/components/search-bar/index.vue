@@ -1,7 +1,7 @@
 <template>
   <div class="m-search">
-    <input class="search" id="search-bar" placeholder="请输入关键词..." v-model="searchText">
-    <label for="search-bar" class="search-icon" @click="search">搜索</label>
+    <input class="search" id="search-bar" placeholder="搜索" v-model="searchText">
+    <img class="search-icon" src="./img/search-icon.png"/>
   </div>
 </template>
 

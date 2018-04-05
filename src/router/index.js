@@ -7,25 +7,32 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      component: resolve => require(['../pages/index'], resolve),
+      component: resolve => require(['../pages/tabbar'], resolve),
       children: [
         {
           path: '/',
-          name: 'lost',
-          meta: { title: '寻物' },
-          component: resolve => require(['../pages/lost'], resolve)
+          meta: { title: '失物招领' },
+          component: resolve => require(['../pages/index'], resolve),
+          children: [
+            {
+              path: '/',
+              name: 'lost',
+              meta: { title: '寻物' },
+              component: resolve => require(['../pages/lost'], resolve)
+            },
+            {
+              path: '/found',
+              name: 'found',
+              meta: { title: '招领' },
+              component: resolve => require(['../pages/found'], resolve)
+            }
+          ]
         },
         {
           path: '/add',
           name: 'add',
-          meta: { title: '失物招领' },
+          meta: { title: '发帖' },
           component: resolve => require(['../pages/add'], resolve)
-        },
-        {
-          path: '/found',
-          name: 'found',
-          meta: { title: '招领' },
-          component: resolve => require(['../pages/found'], resolve)
         },
         {
           path: '/search',

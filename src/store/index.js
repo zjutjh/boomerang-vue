@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as tabbar from '../pages/tabbar/store'
 import * as index from '../pages/index/store'
 
 Vue.use(Vuex)
@@ -11,6 +12,7 @@ const store = new Vuex.Store({
   debug,
   env,
   modules: {
+    tabbar,
     index
   }
 })
