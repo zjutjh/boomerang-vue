@@ -24,6 +24,7 @@ html, body {
   flex-direction: column;
   flex-grow: 1;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .container {
