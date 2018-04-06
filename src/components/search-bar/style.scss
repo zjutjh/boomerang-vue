@@ -10,6 +10,7 @@
   @include border-bottom-1px(#eee);
 
   .search {
+    -webkit-appearance: none;
     flex: 1;
     margin: .8rem;
     border-radius: .5rem;

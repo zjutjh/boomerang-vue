@@ -4,3 +4,7 @@
 @import "reset";
 @import "functions";
 @import "animation";
+
+.padding-tabbar {
+  padding-bottom: $tabbar-height;
+}

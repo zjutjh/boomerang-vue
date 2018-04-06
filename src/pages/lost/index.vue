@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container padding-tabbar">
     <search-bar />
     <lost-item-list :source="itemList" type="lost"/>
   </div>
