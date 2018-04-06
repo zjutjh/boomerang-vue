@@ -21,10 +21,10 @@ const router = new Router({
               component: resolve => require(['../pages/lost'], resolve)
             },
             {
-              path: '/found',
-              name: 'found',
+              path: '/find',
+              name: 'find',
               meta: { title: '招领' },
-              component: resolve => require(['../pages/found'], resolve)
+              component: resolve => require(['../pages/find'], resolve)
             }
           ]
         },

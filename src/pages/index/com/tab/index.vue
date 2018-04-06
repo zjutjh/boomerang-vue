@@ -1,9 +1,9 @@
 <template>
   <div class="m-tab">
     <ul class="tab-list">
-      <li v-for="(item, index) in list" :key="'tab_' + index" class="item" :class="{active: item.active}" @click="onClick(index)">
+      <router-link tag="li" exact :to="item.path" active-class="active" v-for="(item, index) in list" :key="'tab_' + index" class="item">
         {{item.text}}
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -16,15 +16,11 @@ export default {
     }
   },
   props: [
-    'index',
     'list'
   ],
   watch: {
   },
   methods: {
-    onClick: function (index) {
-      this.$emit('onClick', index)
-    }
   }
 }
 </script>

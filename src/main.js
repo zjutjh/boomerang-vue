@@ -6,11 +6,13 @@ import router from './router'
 import store from './store'
 import API from './api/index'
 import fetch from './middlewares/fetch'
-import './common/index.scss'
+import './common/style/index.scss'
+import getValue from './common/mixin/getValue'
 
 Vue.config.productionTip = false
 Vue.prototype.API = API
 Vue.prototype.fetch = fetch
+Vue.prototype.getValue = getValue
 
 /* eslint-disable no-new */
 new Vue({

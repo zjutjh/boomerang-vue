@@ -16,6 +16,7 @@ export default {
 html, body {
   height: 100%;
   width: 100%;
+  font-family: 'PingFang SC', Helvetica, Arial, sans-serif;
 }
 
 #app {

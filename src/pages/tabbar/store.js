@@ -1,7 +1,6 @@
-import * as Constants from './constant'
+// import * as Constants from './constant'
 
 export const state = {
-  tabbarIndex: 0,
   tabbarList: [
     {
       path: '/',
@@ -32,12 +31,6 @@ export const getters = {
 }
 
 export const mutations = {
-  [Constants.TABBAR_CHANGE_TABBAR_INDEX]: (state, payload) => {
-    state.tabbarIndex = payload.index
-    state.tabbarList.forEach((item, index) => {
-      item.active = payload.index === index
-    })
-  }
 }
 
 export const actions = {

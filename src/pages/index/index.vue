@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <tab :list="tabList" :index="tabIndex" @onClick="onTabClick"/>
+    <tab :list="tabList"/>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -9,7 +9,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import * as Constants from './constant'
+// import * as Constants from './constant'
 import tab from './com/tab'
 
 export default {
@@ -22,21 +22,6 @@ export default {
     }
   },
   methods: {
-    changeTab (index) {
-      this.$store.commit(Constants.INDEX_CHANGE_TAB_INDEX, {
-        index
-      })
-    },
-    onTabClick: function (index) {
-      const item = this.tabList[index]
-      if (!item) {
-        throw new Error('Cannot find tab item!')
-      }
-      // 改变tab激活状态/序号
-      this.changeTab(index)
-      // 改变路径
-      this.$router.push({ path: item.path })
-    }
   },
   computed: {
     // 使用对象展开运算符将 state 混入 computed 对象中
