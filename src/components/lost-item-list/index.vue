@@ -13,8 +13,11 @@
           <div class="description">{{item.description}}</div>
           <div class="subtitle">{{item.type.name}} · {{item.updated_at}}</div>
         </div>
-        <div class="image">
-
+        <div class="image" :style="{
+          backgroundImage: item.images[0] ? `url(${item.images[0]})` : '',
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover'
+        }">
         </div>
       </li>
     </ul>
