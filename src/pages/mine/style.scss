@@ -1,0 +1,91 @@
+@import "../../common/style/variables";
+
+.m-user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 10.4rem;
+  padding: 1.6rem;
+
+  .avatar {
+    width: 7.4rem;
+    height: 7.4rem;
+    background-color: #eee;
+    border-radius: .4rem;
+    margin-right: 1.4rem;
+
+    &>img {
+
+    }
+  }
+
+  .content {
+    .nickname {
+      margin-bottom: 1rem;
+      opacity: 0.8;
+      font-size: 1.8rem;
+      color: #000000;
+    }
+
+    .sub-info {
+      margin-top: .2rem;
+      font-size: 1.2rem;
+      color: #797979;
+    }
+  }
+}
+
+.m-setting-list {
+  .title {
+    display: flex;
+    align-items: center;
+    padding-left: 1.6rem;
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    height: 3.9rem;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, .5);
+  }
+
+  .list {
+    .item {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 1.6rem;
+      padding-right: 3.3rem;
+      height: 4.9rem;
+
+      &.touchable {
+        &::after {
+          content: ' ';
+          position: absolute;
+          display: block;
+          top: 50%;
+          right: 1.7rem;
+          width: .6rem;
+          height: 1.4rem;
+          background-image: url('./img/arrow.png');
+          background-position: center center;
+          background-size: contain;
+          transform: translateY(-50%);
+        }
+      }
+
+      .label {
+        opacity: 0.8;
+        font-size: 1.6rem;
+        color: #333333;
+      }
+
+      .badge {
+        opacity: 0.8;
+        font-size: 1.4rem;
+        color: #333333;
+        text-align: right;
+      }
+    }
+  }
+}
