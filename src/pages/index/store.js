@@ -3,12 +3,12 @@
 export const state = {
   tabList: [
     {
-      path: '/',
+      path: '/index/lost',
       active: true,
       text: '寻找失物'
     },
     {
-      path: '/find',
+      path: '/index/find',
       active: false,
       text: '寻找失主'
     }

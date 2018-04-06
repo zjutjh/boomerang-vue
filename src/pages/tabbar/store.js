@@ -3,7 +3,7 @@
 export const state = {
   tabbarList: [
     {
-      path: '/',
+      path: '/index',
       active: true,
       icon: require('./img/index.png'),
       hover: require('./img/index-hover.png'),

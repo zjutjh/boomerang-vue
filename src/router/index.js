@@ -8,20 +8,23 @@ const router = new Router({
     {
       path: '/',
       component: resolve => require(['../pages/tabbar'], resolve),
+      redirect: { name: 'index' },
       children: [
         {
-          path: '/',
+          path: '/index',
+          name: 'index',
           meta: { title: '失物招领' },
           component: resolve => require(['../pages/index'], resolve),
+          redirect: { name: 'lost' },
           children: [
             {
-              path: '/',
+              path: '/index/lost',
               name: 'lost',
               meta: { title: '寻物' },
               component: resolve => require(['../pages/lost'], resolve)
             },
             {
-              path: '/find',
+              path: '/index/find',
               name: 'find',
               meta: { title: '招领' },
               component: resolve => require(['../pages/find'], resolve)

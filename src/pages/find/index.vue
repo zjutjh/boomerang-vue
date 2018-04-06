@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import SearchBar from '../../components/search-bar'
 import LostItemList from '../../components/lost-item-list'
 
@@ -25,7 +25,7 @@ export default {
     this.updateFindItemList(this.getValue(res, 'data.items', null))
   },
   methods: {
-    ...mapActions([
+    ...mapMutations([
       'updateFindItemList'
     ])
   },
