@@ -1,33 +1,6 @@
 @import "../../common/style/variables";
 @import "../../common/style/functions";
 
-.m-define-list {
-  background-color: white;
-  padding-left: 1.6rem;
-
-  .item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 6rem;
-    @include border-bottom-1px(#dcdada);
-
-    &:last-child {
-      @include border-bottom-none();
-    }
-    .title {
-      font-size: 1.4rem;
-      color: black;
-    }
-
-    .content {
-      margin-top: .2rem;
-      font-size: 1.2rem;
-      color: #797979;
-    }
-  }
-}
-
 .m-markdown {
   padding-left: 1.6rem;
   background-color: white;

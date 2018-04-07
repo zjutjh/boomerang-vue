@@ -1,3 +1,46 @@
 @import "../../common/style/variables";
 @import "../../common/style/functions";
 
+.m-carousel {
+  position: relative;
+  height: 33rem;
+  .slide {
+    width: 100%;
+    height: 100%;
+    &>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .VueCarousel-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .VueCarousel-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  .VueCarousel-pagination {
+    position: absolute;
+    left: 50%;
+    bottom: .6rem;
+    transform: translateX(-50%);
+  }
+
+  .VueCarousel-dot-button {
+    width: .8rem !important;
+    height: .8rem !important;
+    background: #D8D8D8 !important;
+    border: 1px solid #EEEEEE !important;
+  }
+
+  .VueCarousel-dot--active {
+    .VueCarousel-dot-button {
+      background: $theme-green !important;
+    }
+  }
+}

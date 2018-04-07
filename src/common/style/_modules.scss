@@ -1,0 +1,32 @@
+.m-define-list {
+  background-color: white;
+  padding-left: 1.6rem;
+
+  &.show-last-border-bottom {
+    @include border-bottom-1px(#dcdada);
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 6rem;
+    @include border-bottom-1px(#dcdada);
+
+    &:last-child {
+      @include border-bottom-none();
+    }
+    .title {
+      line-height: 1.8rem;
+      font-size: 1.4rem;
+      color: black;
+    }
+
+    .content {
+      margin-top: .2rem;
+      line-height: 1.7rem;
+      font-size: 1.2rem;
+      color: #797979;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.u-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 4rem 0;
+  height: 4rem;
+  background-color: $theme-green;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  color: white;
+  text-align: center;
+
+  &.disable {
+    opacity: .4;
+  }
+
+  &.info {
+    background: #7ABDCF;
+  }
+
+  &.danger {
+    background: #CF7A7A;
+  }
+}

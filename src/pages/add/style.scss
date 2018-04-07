@@ -221,21 +221,4 @@
   input[type="radio"] {
     display: none;
   }
-
-  .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 4rem;
-    height: 4rem;
-    background-color: $theme-green;
-    border-radius: 8px;
-    font-size: 1.4rem;
-    color: white;
-    text-align: center;
-
-    &.disable {
-      opacity: .4;
-    }
-  }
 }

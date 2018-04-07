@@ -88,7 +88,7 @@
         </div>
       </div>
 
-      <div class="button disable">发帖</div>
+      <div class="u-button disable">发帖</div>
     </div>
   </div>
 </template>

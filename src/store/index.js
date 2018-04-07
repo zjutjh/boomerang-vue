@@ -7,6 +7,7 @@ import * as find from '../pages/find/store'
 import * as mineLost from '../pages/mine-lost/store'
 import * as mineFound from '../pages/mine-found/store'
 import * as mineUnfinished from '../pages/mine-unfinished/store'
+import * as detail from '../pages/detail/store'
 
 Vue.use(Vuex)
 
@@ -23,7 +24,8 @@ const store = new Vuex.Store({
     find,
     mineLost,
     mineFound,
-    mineUnfinished
+    mineUnfinished,
+    detail
   }
 })
 
