@@ -50,6 +50,36 @@ const router = new Router({
           component: resolve => require(['../pages/mine'], resolve)
         }
       ]
+    },
+    {
+      path: '/mine/found',
+      name: 'mine-found',
+      meta: { title: '已认领-我的' },
+      component: resolve => require(['../pages/mine-found'], resolve)
+    },
+    {
+      path: '/mine/lost',
+      name: 'mine-lost',
+      meta: { title: '已认领-我的' },
+      component: resolve => require(['../pages/mine-lost'], resolve)
+    },
+    {
+      path: '/mine/unfinished',
+      name: 'mine-unfinished',
+      meta: { title: '已认领-我的' },
+      component: resolve => require(['../pages/mine-unfinished'], resolve)
+    },
+    {
+      path: '/edit-contact',
+      name: 'edit-contact',
+      meta: { title: '更改联系方式' },
+      component: resolve => require(['../pages/edit-contact'], resolve)
+    },
+    {
+      path: '/about',
+      name: 'about',
+      meta: { title: '关于我们' },
+      component: resolve => require(['../pages/about'], resolve)
     }
   ]
 })
