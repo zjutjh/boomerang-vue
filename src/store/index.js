@@ -8,6 +8,7 @@ import * as mineLost from '../pages/mine-lost/store'
 import * as mineFound from '../pages/mine-found/store'
 import * as mineUnfinished from '../pages/mine-unfinished/store'
 import * as detail from '../pages/detail/store'
+import * as auth from './auth'
 
 Vue.use(Vuex)
 
@@ -18,6 +19,7 @@ const store = new Vuex.Store({
   debug,
   env,
   modules: {
+    auth,
     tabbar,
     index,
     lost,
