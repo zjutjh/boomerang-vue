@@ -2,7 +2,7 @@
   <div class="container">
     <div class="m-user-info">
       <div class="avatar">
-        <img src=""/>
+        <img src="//up.enterdesk.com/edpic_source/62/7a/6b/627a6ba1dd7bf82738c85bf6660d0a39.jpg"/>
       </div>
       <div class="content">
         <div class="nickname">尼古拉斯</div>
