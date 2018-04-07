@@ -24,19 +24,22 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      let length = this.history.length
-      if (this.history[length - 1] === '/') {
+      function isIndexPath (path) {
+        return ['/', '/index', '/index/lost', '/index/find', '/add', '/mine'].includes(path)
+      }
+      const length = this.history.length
+      if (isIndexPath(this.history[length - 1])) {
         this.history = [
           '/index/lost',
           '/add',
           '/mine'
         ]
-      } else if (this.history[length - 1] === '/mine') {
-        this.history = [
-          '/index/lost',
-          '/add',
-          '/mine'
-        ]
+      }
+      if (isIndexPath(to.path) && !isIndexPath(from.path)) {
+        this.history.pop()
+        this.enterTransitionName = 'next animated fadeInLeft'
+        this.leaveTransitionName = 'animated fadeOutRight'
+        return
       }
       if (this.history.length < 2) {
         this.history.push(to.path)

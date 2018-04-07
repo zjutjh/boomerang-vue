@@ -7,7 +7,7 @@
       暂时没有内容哦~
     </div>
     <ul class="list" v-else>
-      <li class="item" v-for="(item, index) in source" :key="'lost-item-list_' + type + '_' + index">
+      <router-link tag="li" :to="'/detail/' + item.id" class="item" v-for="(item, index) in source" :key="'lost-item-list_' + type + '_' + index">
         <div class="content">
           <div class="title">{{item.title}}</div>
           <div class="description">{{item.description}}</div>
@@ -17,7 +17,7 @@
           backgroundImage: item.images[0] ? `url(${item.images[0]})` : '',
         }">
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

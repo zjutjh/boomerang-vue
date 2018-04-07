@@ -18,13 +18,13 @@ const router = new Router({
           redirect: { name: 'lost' },
           children: [
             {
-              path: '/index/lost',
+              path: 'lost',
               name: 'lost',
               meta: { title: '寻物' },
               component: resolve => require(['../pages/lost'], resolve)
             },
             {
-              path: '/index/find',
+              path: 'find',
               name: 'find',
               meta: { title: '招领' },
               component: resolve => require(['../pages/find'], resolve)
@@ -80,6 +80,12 @@ const router = new Router({
       name: 'about',
       meta: { title: '关于我们' },
       component: resolve => require(['../pages/about'], resolve)
+    },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      meta: { title: '详情' },
+      component: resolve => require(['../pages/detail'], resolve)
     },
     { path: '*', component: resolve => require(['../pages/404'], resolve) }
   ]
