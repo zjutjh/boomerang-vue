@@ -29,12 +29,12 @@
       </ul>
       <div class="title">设置</div>
       <ul class="list">
-        <router-link tag="li" to="/edit-contact" class="item touchable">
-          <div class="label">更改联系方式</div>
-        </router-link>
-          <router-link tag="li" to="/about" class="item touchable">
+        <!--<router-link tag="li" to="/edit-contact" class="item touchable">-->
+          <!--<div class="label">更改联系方式</div>-->
+        <!--</router-link>-->
+        <router-link tag="li" to="/about" class="item touchable">
           <div class="label">关于</div>
-          </router-link>
+        </router-link>
       </ul>
     </div>
   </div>

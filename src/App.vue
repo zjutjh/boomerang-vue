@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <transition name="fade">
+    <transition
+      name="custom-classes-transition"
+      :enter-active-class="enterTransitionName"
+      :leave-active-class="leaveTransitionName"
+    >
       <router-view/>
     </transition>
   </div>
@@ -8,7 +12,47 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      history: [
+        '/'
+      ],
+      enterTransitionName: 'next animated fadeInRight',
+      leaveTransitionName: 'animated fadeOutLeft'
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      let length = this.history.length
+      if (this.history[length - 1] === '/') {
+        this.history = [
+          '/index/lost',
+          '/add',
+          '/mine'
+        ]
+      } else if (this.history[length - 1] === '/mine') {
+        this.history = [
+          '/index/lost',
+          '/add',
+          '/mine'
+        ]
+      }
+      if (this.history.length < 2) {
+        this.history.push(to.path)
+      } else {
+        if (to.path === (this.history[length - 2])) {
+          this.history.pop()
+          this.enterTransitionName = 'next animated fadeInLeft'
+          this.leaveTransitionName = 'animated fadeOutRight'
+        } else {
+          this.history.push(to.path)
+          this.enterTransitionName = 'next animated fadeInRight'
+          this.leaveTransitionName = 'animated fadeOutLeft'
+        }
+      }
+    }
+  }
 }
 </script>
 
@@ -20,10 +64,11 @@ html, body {
 }
 
 #app {
+  position: relative;
   display: flex;
   flex: 1;
+  align-self: stretch;
   flex-direction: column;
-  flex-grow: 1;
   min-height: 100%;
   overflow: hidden;
 }

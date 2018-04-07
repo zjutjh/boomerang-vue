@@ -1,0 +1,93 @@
+@import "../../common/style/variables";
+@import "../../common/style/functions";
+
+.not-found {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: #BABABA;
+
+  .content {
+    margin-top: -8rem;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 7.5rem;
+    height: 2.6rem;
+    background: $theme-green;
+    border-radius: .8rem;
+    font-size: 1.2rem;
+    color: white;
+  }
+}
+
+.m-huge-image-list {
+  .tip {
+    padding: 3rem 0;
+    color: #aaaaaa;
+    text-align: center;
+    font-weight: 300;
+  }
+
+  .list {
+    .item {
+      position: relative;
+      height: 22.4rem;
+      background: #eeeeee;
+
+      .mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.00) 56%, rgba(0,0,0,0.60) 100%);
+      }
+
+      .image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .title {
+        position: absolute;
+        left: 1.6rem;
+        bottom: 3.2rem;
+        font-size: 1.4rem;
+        color: white;
+      }
+
+      .subtitle {
+        position: absolute;
+        left: 1.6rem;
+        bottom: 1.2rem;
+        font-size: 1.2rem;
+        color: #BABABA;
+      }
+
+      .status {
+        opacity: 0.8;
+        position: absolute;
+        right: 1.9rem;
+        bottom: 1.6rem;
+        font-size: 2.2rem;
+        color: #FFFFFF;
+        font-weight: 400;
+      }
+    }
+  }
+}

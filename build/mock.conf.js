@@ -10,11 +10,11 @@ for (let key of Object.keys(apiMap)) {
 }
 
 module.exports = function (app) {
-  Object.keys(apiPathMap).forEach((wildcard) => {
-    app.get('/mock' + wildcard, function (req, res) {
+  Object.keys(apiMap).forEach((wildcard) => {
+    app.get('/mock/' + wildcard, function (req, res) {
       // const pathname = req._parsedUrl.pathname
-      const apiName = apiPathMap[wildcard]
-      const mockFile = path.resolve(mockPath, apiName + '.js')
+      // const apiName = apiMap[wildcard]
+      const mockFile = path.resolve(mockPath, wildcard + '.js')
       delete require.cache[mockFile] // delete cache, so you can edit mock data any time
       const result = require(mockFile)(req)
       if (result.$delay) {

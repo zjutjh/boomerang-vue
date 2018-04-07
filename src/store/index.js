@@ -4,6 +4,9 @@ import * as tabbar from '../pages/tabbar/store'
 import * as index from '../pages/index/store'
 import * as lost from '../pages/lost/store'
 import * as find from '../pages/find/store'
+import * as mineLost from '../pages/mine-lost/store'
+import * as mineFound from '../pages/mine-found/store'
+import * as mineUnfinished from '../pages/mine-unfinished/store'
 
 Vue.use(Vuex)
 
@@ -17,7 +20,10 @@ const store = new Vuex.Store({
     tabbar,
     index,
     lost,
-    find
+    find,
+    mineLost,
+    mineFound,
+    mineUnfinished
   }
 })
 

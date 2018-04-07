@@ -80,7 +80,8 @@ const router = new Router({
       name: 'about',
       meta: { title: '关于我们' },
       component: resolve => require(['../pages/about'], resolve)
-    }
+    },
+    { path: '*', component: resolve => require(['../pages/404'], resolve) }
   ]
 })
 

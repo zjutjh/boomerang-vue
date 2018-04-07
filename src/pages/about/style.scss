@@ -1,0 +1,89 @@
+@import "../../common/style/variables";
+@import "../../common/style/functions";
+
+.m-define-list {
+  background-color: white;
+  padding-left: 1.6rem;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 6rem;
+    @include border-bottom-1px(#dcdada);
+
+    &:last-child {
+      @include border-bottom-none();
+    }
+    .title {
+      font-size: 1.4rem;
+      color: black;
+    }
+
+    .content {
+      margin-top: .2rem;
+      font-size: 1.2rem;
+      color: #797979;
+    }
+  }
+}
+
+.m-markdown {
+  padding-left: 1.6rem;
+  background-color: white;
+  font-size: 1.2rem;
+  color: #666666;
+  line-height: 2rem;
+
+  .text {
+    text-indent: 2em;
+  }
+
+  .h4 {
+    margin-top: 1.4rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    color: black;
+  }
+
+  .comment {
+    position: relative;
+    font-size: 1.2rem;
+    color: #888888;
+    line-height: 1.7rem;
+    padding: .6rem .6rem .6rem 1.4rem;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: .4rem;
+      background-color: #eeeeee;
+    }
+  }
+
+  ol {
+    font-size: 1.2rem;
+    color: #666666;
+    list-style-type: none;
+    counter-reset: sectioncounter;
+    &>li {
+      position: relative;
+      line-height: 2rem;
+      margin-left: 2rem;
+      font-size: 1.2rem;
+
+      &:before {
+        position: absolute;
+        left: -2rem;
+        top: 0;
+        margin-right: 2rem;
+        content: counter(sectioncounter) '.';
+        counter-increment: sectioncounter;
+      }
+    }
+  }
+}

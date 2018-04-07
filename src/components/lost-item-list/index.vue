@@ -1,6 +1,6 @@
 <template>
   <div class="m-lost-item-list">
-    <div class="tip" v-if="source === null">
+    <div class="tip" v-if="source == null">
       加载中……
     </div>
     <div class="tip" v-else-if="source.length === 0">
