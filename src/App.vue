@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <toast></toast>
     <transition
       name="custom-classes-transition"
       :enter-active-class="enterTransitionName"
@@ -11,8 +12,12 @@
 </template>
 
 <script>
+import Toast from './components/toast'
 export default {
   name: 'App',
+  components: {
+    Toast
+  },
   data () {
     return {
       history: [

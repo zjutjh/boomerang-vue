@@ -7,6 +7,9 @@ export const state = {
 export const getters = {
   token: (state, getters) => {
     return state.token
+  },
+  userInfo: (state, getters) => {
+    return state.userInfo
   }
 }
 
@@ -39,16 +42,17 @@ export const actions = {
    */
   async runAfterLogin (context, func) {
     const token = context.state.token
-    const userInfo = context.state.token
-
-    // 如果登录
-    if (token && userInfo) {
-      if (typeof func === 'function') {
-        func()
-      }
+    const userInfo = context.state.userInfo
+    // 如果未登录，跳转微信认证页面
+    if (!token || !userInfo) {
+      // TODO 暂时跳到auth，之后要改成微信认证
+      location.href = '/#/auth?code=12345'
+      return
     }
 
-    // 否则跳转微信认证页面
-    // TODO
+    // 否则执行函数
+    if (typeof func === 'function') {
+      func()
+    }
   }
 }

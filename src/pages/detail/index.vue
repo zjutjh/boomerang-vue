@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <template v-if="detailData">
-      <carousel class="m-carousel" perPage="1">
+      <carousel class="m-carousel" :perPage="1">
         <slide class="slide" v-for="(image, index) in detailData.images" :key="'detail-image_' + index">
           <img :src="image"/>
         </slide>
@@ -27,7 +27,7 @@
       <!-- 如果是当前用户发的贴 -->
       <template>
         <div class="u-button info">编辑</div>
-        <div class="u-button">标记为「xxx」</div>
+        <div class="u-button" @click="markFinished">标记为「xxx」</div>
         <div class="u-button danger">删除</div>
       </template>
     </template>
@@ -56,7 +56,13 @@ export default {
   methods: {
     ...mapMutations([
       'updateDetailData'
-    ])
+    ]),
+    markFinished: function () {
+      const canFinished = confirm('你确定要标记为「xxx」吗？')
+      if (canFinished) {
+        // 标记为xxx
+      }
+    }
   },
   computed: {
     // 使用对象展开运算符将 state 混入 computed 对象中

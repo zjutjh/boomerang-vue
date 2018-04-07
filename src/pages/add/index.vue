@@ -102,6 +102,9 @@ export default {
     return {
     }
   },
+  created: function () {
+    this.$store.dispatch('runAfterLogin')
+  },
   methods: {
   },
   computed: {

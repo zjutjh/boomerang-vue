@@ -1,0 +1,126 @@
+@import "../../common/style/variables";
+@import "../../common/style/functions";
+
+
+.toast-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: transparent
+}
+
+.ui-status-cnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: .5rem;
+  width: 12rem;
+  min-height: 12rem;
+
+  .iconfont {
+    display: block;
+    font-size: 1.56rem;
+  }
+  .content {
+    margin-top: 1.2rem;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    color: white;
+  }
+}
+.icon-loading-dark {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  background: url(./img/loading_sprite.png);
+  background-size: auto 2rem;
+  animation: am-rotate 1s steps(12) infinite;
+}
+.icon-loading {
+  width: 3.7rem;
+  height: 3.7rem;
+  display: block;
+  background-image: url(./img/loading_sprite_white.png);
+  background-size: auto 3.7rem;
+  animation: am-rotate2 1s steps(12) infinite;
+}
+.icon-success {
+  width: 5rem;
+  height: 3.8rem;
+  display: block;
+  background-image: url(./img/success.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.icon-error {
+  width: 3.7rem;
+  height: 3.7rem;
+  display: block;
+  background-image: url(./img/error.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+@keyframes am-rotate {
+  from {
+    background-position:0 0
+  }
+  to {
+    background-position:-24rem 0
+  }
+}
+@keyframes am-rotate2 {
+  from {
+    background-position:0 0
+  }
+  to {
+    background-position:-44.4rem 0
+  }
+}
+@-webkit-keyframes am-rotate {
+  from {
+    background-position:0 0
+  }
+  to {
+    background-position:-24rem 0
+  }
+}
+@-webkit-keyframes am-rotate2 {
+  from {
+    background-position:0 0
+  }
+  to {
+    background-position:-44.4rem 0
+  }
+}
+@-moz-keyframes am-rotate {
+  from {
+    background-position:0 0
+  }
+  to {
+    background-position:-24rem 0
+  }
+}
+@-moz-keyframes am-rotate2 {
+  from {
+    background-position:0 0
+  }
+  to {
+    background-position:-44.4rem 0
+  }
+}
