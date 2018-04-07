@@ -1,4 +1,5 @@
 const apiMap = {
+  'autoLogin': '',
   'getUserInfo': '/user/{id}',
   'lost/lists': '/api/lost/lists',
   'find/lists': '/api/find/lists',

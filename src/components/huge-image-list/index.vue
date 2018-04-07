@@ -11,13 +11,13 @@
   </div>
   <div class="m-huge-image-list" v-else>
     <ul class="list">
-      <li class="item" v-for="(item, index) in source" :key="'huge-image-list_' + type + '_' + index" >
+      <router-link tag="li" :to="'/detail/' + item.id" class="item" v-for="(item, index) in source" :key="'huge-image-list_' + type + '_' + index" >
         <img class="image" :src="item.images[0] ? item.images[0] : ''">
         <div class="mask"></div>
         <div class="title">{{item.title}}</div>
         <div class="subtitle">{{description(item.updated_at)}}</div>
         <div class="status">{{badge}}</div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

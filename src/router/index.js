@@ -87,6 +87,7 @@ const router = new Router({
       meta: { title: '详情' },
       component: resolve => require(['../pages/detail'], resolve)
     },
+    { path: '/auth', component: resolve => require(['../pages/auth'], resolve) },
     { path: '*', component: resolve => require(['../pages/404'], resolve) }
   ]
 })
