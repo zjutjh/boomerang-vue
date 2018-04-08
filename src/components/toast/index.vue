@@ -13,16 +13,9 @@
 export default {
   data () {
     return {
-      icon: {
-        error: '&#xe646;',
-        success: '&#xe645;'
-      }
     }
   },
   computed: {
-    iconFont: function () {
-      return this.icon[this.status]
-    },
     show: function () {
       return this.$store.state.toast.show
     },
