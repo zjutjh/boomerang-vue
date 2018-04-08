@@ -3,7 +3,7 @@
     <div class="toast-block" v-if="show">
       <div class="ui-status-cnt">
         <i class="iconfont" :class="['icon-'+status]"></i>
-        <div class="content">{{title}}</div>
+        <div class="content" v-if="title">{{title}}</div>
       </div>
     </div>
   </transition>

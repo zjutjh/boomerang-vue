@@ -25,9 +25,6 @@ export const mutations = {
   },
   showLoading (state, payload) {
     const title = typeof payload === 'string' ? payload : payload.title
-    if (!title) {
-      return false
-    }
     state.status = 'loading'
     state.show = true
     state.title = title
