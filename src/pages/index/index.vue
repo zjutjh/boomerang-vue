@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <announcement />
     <tab :list="tabList"/>
     <div class="tab-container">
       <transition
@@ -17,12 +18,14 @@
 
 <script>
 import { mapState } from 'vuex'
-import tab from './com/tab'
+import Tab from './com/tab'
+import Announcement from '../../components/announcement'
 
 export default {
   name: 'index',
   components: {
-    tab
+    Announcement,
+    Tab
   },
   data () {
     return {

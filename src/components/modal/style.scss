@@ -1,0 +1,43 @@
+@import "../../common/style/variables";
+@import "../../common/style/functions";
+
+.m-modal {
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+
+  .modal-wrap {
+    width: 24.7rem;
+    background: #FFFFFF;
+    box-shadow: 0 .2rem .9rem 0 rgba(0, 0, 0, .1);
+    border-radius: .2rem;
+    padding: 3.1rem 2.2rem 2.5rem 2.2rem;
+
+    .title {
+      padding-bottom: 1.6rem;
+      opacity: 0.87;
+      font-size: 1.8rem;
+      color: #000000;
+    }
+
+    .content {
+      padding-bottom: 1.3rem;
+      opacity: 0.54;
+      font-size: 1.4rem;
+      color: #000000;
+    }
+
+    .confirm {
+      color: $theme-green;
+      font-size: 1.3rem;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../common/style/variables";
+@import "../../common/style/functions";
+
+.m-announcement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2.5rem;
+  background: #FFFDD4;
+  padding: .5rem 1.6rem;
+  .summary {
+    font-size: 1.2rem;
+    color: #FF9602;
+  }
+
+  .check-detail {
+    margin-left: .6rem;
+    font-size: 1.2rem;
+    color: #02AAFF;
+  }
+}
