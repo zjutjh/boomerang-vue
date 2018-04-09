@@ -2,6 +2,7 @@
 @import "../../common/style/functions";
 
 .m-lost-item-list {
+  $padding-left: 2rem;
   .tip {
     padding: 3rem 0;
     color: #aaaaaa;
@@ -33,22 +34,34 @@
           width: 20rem;
           position: absolute;
           top: 1.4rem;
-          left: 2.2rem;
-          font-size: 1.8rem;
+          left: $padding-left;
+          font-size: 1.6rem;
           color: #666666;
           font-weight: 400;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          letter-spacing: 1px;
+
+          .badge {
+            padding: .1rem .8rem;
+            border-radius: .4rem;
+            margin-right: .6rem;
+            vertical-align: middle;
+            font-size: 1rem;
+            color: white;
+            background-color: $theme-green;
+          }
         }
 
         .description {
           display: -webkit-box;
           position: absolute;
-          top: 4.5rem;
-          left: 2.2rem;
-          font-size: 1.4rem;
-          color: #888888;
+          top: 4rem;
+          left: $padding-left;
+          font-size: 1.2rem;
+          padding-right: .8rem;
+          color: #aaa;
           font-weight: 300;
           line-height: 1.8rem;
           -webkit-line-clamp: 2;
@@ -58,11 +71,22 @@
 
         .subtitle {
           position: absolute;
-          bottom: .8rem;
-          left: 2.2rem;
+          bottom: 1rem;
+          left: $padding-left;
           font-size: 1.2rem;
-          color: #888888;
+          color: #666;
           font-weight: 300;
+
+          .badge {
+            padding: .1rem .4rem;
+            border-radius: .4rem;
+            margin-right: .6rem;
+            vertical-align: middle;
+            font-size: 1rem;
+            color: #666;
+            border: 1px solid rgba(0, 0, 0, .1);
+            background-color: transparent;
+          }
         }
       }
     }

@@ -15,10 +15,10 @@
   }
 
   &.info {
-    background: #7ABDCF;
+    background: $theme-blue;
   }
 
   &.danger {
-    background: #CF7A7A;
+    background: $theme-red;
   }
 }
