@@ -46,7 +46,7 @@ export const actions = {
     // 如果未登录，跳转微信认证页面
     if (!token || !userInfo) {
       // TODO 暂时跳到auth，之后要改成微信认证
-      location.href = '/#/auth?code=12345'
+      location.href = 'https://boomerang.zhutianyu.top/oauth'
       return
     }
 
