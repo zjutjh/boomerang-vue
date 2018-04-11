@@ -7,10 +7,8 @@
   }
 
   .item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 6rem;
+    padding: 1.4rem 0 1.2rem;
+    //height: 6rem;
     @include border-bottom-1px(#dcdada);
 
     &:last-child {

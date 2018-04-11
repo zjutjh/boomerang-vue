@@ -7,7 +7,7 @@
       </div>
       <div class="item">
         <div class="title">开发成员</div>
-        <div class="content">xxx、xxx、xxx、xxx</div>
+        <div class="content">xxx<br/>xxx<br/>xxx<br/>xxx</div>
       </div>
     </div>
     <div class="m-markdown">
