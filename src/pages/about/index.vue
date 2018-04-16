@@ -7,7 +7,7 @@
       </div>
       <div class="item">
         <div class="title">开发成员</div>
-        <div class="content">『带头大哥』朱兴照<br/>『带头二哥&UI』陈然<br/>『产品』涂珊莎<br/>『后端』张静茜<br/>『后端』张炜<br/>『后端』叶哲<br/>『前端』林英琮<br/>『前端』黄潇扬<br/>『前端』徐国聪<br/>『前端』汪雨薇</div>
+        <div class="content">『带头大哥』朱兴照<br/>『带头二哥&UI』陈然<br/>『产品』涂珊莎<br/>『后端』张静茜<br/>『后端』张炜<br/>『后端』叶哲<br/>『前端&UI』林英琮<br/>『前端』黄潇扬<br/>『前端』徐国聪<br/>『前端』汪雨薇</div>
       </div>
     </div>
     <div class="m-markdown">
