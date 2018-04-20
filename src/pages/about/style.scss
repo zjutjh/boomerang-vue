@@ -6,7 +6,8 @@
   background-color: white;
   font-size: 1.2rem;
   color: #666666;
-  line-height: 2rem;
+  line-height: 2.2rem;
+  padding-bottom: 6rem;
 
   .text {
     text-indent: 2em;
@@ -23,7 +24,7 @@
     position: relative;
     font-size: 1.2rem;
     color: #888888;
-    line-height: 1.7rem;
+    line-height: 2rem;
     padding: .6rem .6rem .6rem 1.4rem;
 
     &::before {
@@ -45,7 +46,7 @@
     counter-reset: sectioncounter;
     &>li {
       position: relative;
-      line-height: 2rem;
+      line-height: 2.2rem;
       margin-left: 2rem;
       font-size: 1.2rem;
 
