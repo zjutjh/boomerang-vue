@@ -1,13 +1,8 @@
 <template>
   <div class="container">
     <div class="m-user-info">
-      <div class="avatar">
-        <img src="//up.enterdesk.com/edpic_source/05/74/c7/0574c7377e48358cbfa82bfa1205b99f.jpg"/>
-      </div>
       <div class="content">
-        <div class="nickname">尼古拉斯</div>
-        <div class="sub-info">QQ：未填写</div>
-        <div class="sub-info">手机号：1578888888</div>
+        <div class="nickname">{{userInfo.name}}</div>
       </div>
     </div>
 
@@ -41,6 +36,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'mine',
   components: {
@@ -52,9 +48,17 @@ export default {
   created: function () {
     this.$store.dispatch('runAfterLogin')
   },
+
   methods: {
+    ...mapMutations([
+
+    ])
   },
   computed: {
+    // 使用对象展开运算符将 state 混入 computed 对象中
+    ...mapState({
+      userInfo: (state) => state.auth.userInfo
+    })
   }
 }
 </script>
