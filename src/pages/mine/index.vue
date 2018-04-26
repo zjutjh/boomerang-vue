@@ -6,6 +6,8 @@
       <!--</div>-->
       <div class="content">
         <div class="nickname">{{userInfo.name}}</div>
+        <!--<div class="sub-info">QQ：{{qq}}</div>-->
+        <!--<div class="sub-info">手机号：{{num}}</div>-->
       </div>
     </div>
 
@@ -32,8 +34,6 @@
         <!--</router-link>-->
         <router-link tag="li" to="/about" class="item touchable">
           <div class="label">关于</div>
-          <!--<div class="sub-info">QQ：{{qq}}</div>-->
-          <!--<div class="sub-info">手机号：{{num}}</div>-->
         </router-link>
       </ul>
     </div>
@@ -56,7 +56,7 @@ export default {
 
   methods: {
     ...mapMutations([
-      'updateUserInfo'
+
     ])
   },
   computed: {
