@@ -6,8 +6,10 @@ module.exports = function (req) {
     code: 1,
     data: {
       id: userId,
-      username: 'John',
-      headImg: '../build/logo.png'
+      name: 'John',
+      headImg: '../build/logo.png',
+      qq: ' ',
+      num: ' '
     },
     error: ''
   }
