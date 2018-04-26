@@ -1,13 +1,8 @@
 <template>
   <div class="container">
     <div class="m-user-info">
-      <!--<div class="avatar">-->
-        <!--<img :src="userInfo.headImg"/>-->
-      <!--</div>-->
       <div class="content">
         <div class="nickname">{{userInfo.name}}</div>
-        <!--<div class="sub-info">QQ：{{qq}}</div>-->
-        <!--<div class="sub-info">手机号：{{num}}</div>-->
       </div>
     </div>
 
