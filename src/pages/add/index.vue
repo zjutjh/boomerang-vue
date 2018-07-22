@@ -47,8 +47,8 @@
             <div class="touchable-input">
               <select>
                 <option value='' disabled selected style='display:none;'>请选择分类</option>
-                <option value ="1">校园卡</option>
-                <option value ="2">校园卡1</option>
+                <option value="1">校园卡</option>
+                <option value="2">校园卡1</option>
                 <option value="3">校园卡2</option>
                 <option value="4">校园卡3</option>
               </select>

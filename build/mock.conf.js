@@ -1,4 +1,5 @@
 const path = require('path')
+const url = require('url')
 const mockPath = path.join('./mock')
 // const apiMap = require('../src/api/map')
 // const apiPathMap = {}
@@ -12,7 +13,8 @@ const mockPath = path.join('./mock')
 module.exports = function (app) {
   app.get('/mock/*', function (req, res) {
     if (req.url.match(/^\/mock\//)) {
-      const mockFile = path.resolve(mockPath, req.url.replace(/^\/mock\//, '') + '.js')
+      const pathname = url.parse(req.url).pathname
+      const mockFile = path.resolve(mockPath, pathname.replace(/^\/mock\//, '') + '.js')
       delete require.cache[mockFile] // delete cache, so you can edit mock data any time
       try {
         const result = require(mockFile)(req)
