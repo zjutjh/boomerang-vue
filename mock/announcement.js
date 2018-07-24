@@ -1,12 +1,12 @@
 module.exports = function (req) {
   return {
     $delay: 1000,
-    code: 1,
+    code: 200,
     data: {
-      summary: 'JohnsToken',
-      title: '公告',
-      content: '这是一条公告'
+      'id': 1,
+      'title': '公告',
+      'content': '最新公告'
     },
-    error: ''
+    error: null
   }
 }

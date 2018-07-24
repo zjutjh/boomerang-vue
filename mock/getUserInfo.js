@@ -3,11 +3,11 @@ module.exports = function (req) {
   const userId = params[0]
   return {
     $delay: 1000,
-    code: 1,
+    code: 200,
     data: {
       id: userId,
       name: 'John'
     },
-    error: ''
+    error: null
   }
 }

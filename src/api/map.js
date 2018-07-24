@@ -1,13 +1,13 @@
 const apiMap = {
-  'announcement': '',
-  'autoLogin': '',
-  'getUserInfo': '/user/{id}',
+  'announcement': '/api/announcement',
+  'autoLogin': '/api/auto_login',
+  'getUserInfo': '/api/auto_login',
   'lost/lists': '/api/lost/lists',
   'find/lists': '/api/find/lists',
-  'detail': '/detail/{id}',
-  'mine/lost': '',
-  'mine/found': '',
-  'mine/unfinished': ''
+  'detail': '/api/detail/id',
+  'mine/lost': '/api/mine/lists/lost',
+  'mine/found': '/api/mine/lists/found',
+  'mine/unfinished': '/api/mine/lists/unfinished'
 }
 
 module.exports = apiMap
