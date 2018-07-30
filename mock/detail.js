@@ -10,7 +10,6 @@ module.exports = function (req) {
       'lost_place': '西十五洗衣房', // 丢失地点
       'images': [ // 图片
         '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
-        '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
         '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
       ],
       'lost_type': 0, // 失物
@@ -21,16 +20,7 @@ module.exports = function (req) {
       },
       'qq': 'xxxx',
       'phone': 'xxxxx',
-      'status': 1, // 已寻回
-      'deleted': 0, // 未删除
-      'user': { // 发布者信息，由uid查询而来
-        'id': 1, // 用户id
-        'uno': 'xxxx' // 用户学号
-        // 其他字段看需求是否增加
-      },
-      'contact_uno': '',
-      'created_at': 'xxxx-xx-xx xx:xx:xx',
-      'updated_at': 'xxxx-xx-xx xx:xx:xx'
+      'status': 1 // 已寻回
     }
   }
 }

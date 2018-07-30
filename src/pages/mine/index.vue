@@ -11,15 +11,15 @@
       <ul class="list">
         <router-link tag="li" to="/mine/lost" class="item touchable">
           <div class="label">已寻回</div>
-          <div class="badge">6</div>
+          <div class="badge">{{userInfo.lost_num}}</div>
         </router-link>
         <router-link tag="li" to="/mine/found" class="item touchable">
           <div class="label">已认领</div>
-          <div class="badge">7</div>
+          <div class="badge">{{userInfo.found_num}}</div>
         </router-link>
         <router-link tag="li" to="/mine/unfinished" class="item touchable">
           <div class="label">未完成</div>
-          <div class="badge">0</div>
+          <div class="badge">{{userInfo.unfinished_num}}</div>
         </router-link>
       </ul>
       <div class="title">设置</div>
