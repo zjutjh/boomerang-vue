@@ -7,17 +7,15 @@
         </textarea>
       </div>
       <div class="input-image-group">
-        <div class="input-image-item">
-          <img src="//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg"/>
-          <i class="delete"></i>
-        </div>
-        <div class="input-image-item">
-          <img src="//up.enterdesk.com/edpic_source/59/4f/e8/594fe8bd99b7b1c23bee38dd1b88fda2.jpg"/>
-          <i class="delete"></i>
-        </div>
-        <div class="input-image-item" @click="chooseType">
-        </div>
-        <input @change="fileChange($event)" type="file" id="upload_file" multiple style="display: none"/>
+          <ul>
+            <li class="input-image-item" v-for="(url,index) in imgList" :key="index">
+              <img :src="url.file.src">
+              <i class="delete" @click.stop="deleteImg(index)"></i>
+            </li>
+          </ul>
+          <div class="input-image-item" @click="chooseType" v-if="imgList.length < 5">
+          </div>
+          <input @change="fileChange($event)" type="file" id="upload_file" multiple style="display: none"/>
       </div>
       <div class="form-group">
 
