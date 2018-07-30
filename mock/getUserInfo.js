@@ -6,7 +6,10 @@ module.exports = function (req) {
     code: 200,
     data: {
       id: userId,
-      name: 'John'
+      name: 'John',
+      found_num: 2,
+      lost_num: 10,
+      unfinished_num: 2
     },
     error: null
   }
