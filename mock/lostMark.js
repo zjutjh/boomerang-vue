@@ -21,7 +21,7 @@ module.exports = function (req) {
       },
       'qq': 'xxxx',
       'phone': 'xxxxx',
-      'status': 0 // 未寻回
+      'status': 1 // 已寻回
     }
   }
 }

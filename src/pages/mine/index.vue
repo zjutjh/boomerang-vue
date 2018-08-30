@@ -57,7 +57,7 @@ export default {
   computed: {
     // 使用对象展开运算符将 state 混入 computed 对象中
     ...mapState({
-      userInfo: (state) => state.auth.userInfo
+      userInfo: (state) => state.auth.userInfo || {}
     })
   }
 }

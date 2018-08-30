@@ -25,10 +25,10 @@
         </div>
       </div>
       <!-- 如果是当前用户发的贴 -->
-      <template>
-        <div class="u-button info">编辑</div>
-        <div class="u-button" @click="markFinished">标记为「xxx」</div>
-        <div class="u-button danger">删除</div>
+      <template v-if="detailData.uid === userInfo.id">
+        <div class="u-button" @click="lostMarkFinished" v-if="detailData.lost_type === 0 && detailData.status === 0">标记为已寻回</div>
+        <div class="u-button" @click="foundMarkFinished" v-if="detailData.lost_type === 1 && detailData.status === 0">标记为已认领</div>
+        <div class="u-button danger" @click="sureToDelete">删除</div>
       </template>
     </template>
   </div>
@@ -57,17 +57,51 @@ export default {
     ...mapMutations([
       'updateDetailData'
     ]),
-    markFinished: function () {
-      const canFinished = confirm('你确定要标记为「xxx」吗？')
+    lostMarkFinished: async function () {
+      const canFinished = confirm('你确定要标记为已寻回吗？')
       if (canFinished) {
-        // 标记为xxx
+        const id = this.$route.params.id
+        const res = await this.fetch(this.API('lostMark'), {
+          params: {
+            id
+          }
+        })
+        this.updateDetailData(this.getValue(res, 'data', null))
+        alert('成功标记为已寻回')
+      }
+    },
+    foundMarkFinished: async function () {
+      const canFinished = confirm('你确定要标记为已认领吗？')
+      if (canFinished) {
+        const id = this.$route.params.id
+        const res = await this.fetch(this.API('foundMark'), {
+          params: {
+            id
+          }
+        })
+        this.updateDetailData(this.getValue(res, 'data', id))
+        alert('成功标记为已认领')
+      }
+    },
+    sureToDelete: async function () {
+      const sureToDelete = confirm('你确定要删除吗')
+      if (sureToDelete) {
+        const id = this.$route.params.id
+        await this.fetch(this.API('delete'), {
+          params: {
+            id
+          }
+        })
+        alert('删除成功')
+        this.$router.go(-1)
       }
     }
   },
   computed: {
     // 使用对象展开运算符将 state 混入 computed 对象中
     ...mapState({
-      detailData: (state) => state.detail.detailData
+      detailData: (state) => state.detail.detailData,
+      userInfo: (state) => state.auth.userInfo || {}
     })
   }
 }
