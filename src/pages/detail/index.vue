@@ -64,7 +64,8 @@ export default {
         const res = await this.fetch(this.API('lostMark'), {
           params: {
             id
-          }
+          },
+          method: 'POST'
         })
         this.updateDetailData(this.getValue(res, 'data', null))
         alert('成功标记为已寻回')
@@ -77,7 +78,8 @@ export default {
         const res = await this.fetch(this.API('foundMark'), {
           params: {
             id
-          }
+          },
+          method: 'POST'
         })
         this.updateDetailData(this.getValue(res, 'data', id))
         alert('成功标记为已认领')
@@ -90,7 +92,8 @@ export default {
         await this.fetch(this.API('delete'), {
           params: {
             id
-          }
+          },
+          method: 'POST'
         })
         alert('删除成功')
         this.$router.go(-1)
