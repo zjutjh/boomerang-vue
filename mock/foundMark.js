@@ -13,7 +13,7 @@ module.exports = function (req) {
         '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
         '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
       ],
-      'lost_type': 0, // 失物
+      'lost_type': 1, // 招领
       'type': { // 由type_id查询而来
         'id': 1,
         'name': '校园卡',
@@ -21,7 +21,7 @@ module.exports = function (req) {
       },
       'qq': 'xxxx',
       'phone': 'xxxxx',
-      'status': 0 // 未寻回
+      'status': 1 // 已认领
     }
   }
 }
