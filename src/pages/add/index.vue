@@ -2,8 +2,8 @@
   <div class="container padding-tabbar">
     <div class="m-form">
       <div class="input-group">
-        <input class="input-item" placeholder="请输入标题" />
-        <textarea class="input-item" placeholder="详细描述……">
+        <input class="input-item" placeholder="请输入标题" name="title" v-model="title" />
+        <textarea class="input-item" placeholder="详细描述……" name="details" v-model="details">
         </textarea>
       </div>
       <div class="input-image-group">
@@ -23,18 +23,18 @@
         <div class="form-item huge">
           <div class="label">类型</div>
           <div class="content column">
-            <div class="radio-group inline">
-              <div class="radio-item">
-                <input type="radio" id="type-lost" name="type" value="你选择了“寻找失物”，这代表你丢失了某样东西" v-model="abs" checked/>
+            <div class="radio-group inline" @change="tipChoose">
+              <div class="radio-item" >
+                <input type="radio" id="type-lost" name="type" value="寻找失物" v-model="abs" checked/>
                 <label for="type-lost">寻找失物</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="type-find" value="你选择了“寻找失主”，这代表你找到了某样东西" name="type" v-model="abs"/>
+                <input type="radio" id="type-find" name="type" value="寻找失主" v-model="abs"/>
                 <label for="type-find">寻找失主</label>
               </div>
             </div>
             <div class="tip">
-              {{abs}}
+              {{tips}}
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
         <div class="form-item">
           <div class="label">地点</div>
           <div class="content">
-            <input placeholder="请输入地点"/>
+            <input placeholder="请输入地点" name="place" v-model="place" />
           </div>
         </div>
 
@@ -78,12 +78,12 @@
         <div class="form-item">
           <div class="label">手机号码</div>
           <div class="content">
-            <input placeholder="请输入手机号码"/>
+            <input placeholder="请输入手机号码" name="contact" v-model="contact" />
           </div>
         </div>
       </div>
 
-      <div class="u-button disable">发帖</div>
+      <div v-bind:class="[button , { disable: isActive }]">发帖</div>
     </div>
   </div>
 </template>
@@ -95,20 +95,100 @@ export default {
   },
   data () {
     return {
+      isActive: true,
+      button: 'u-button',
       title: '',
       details: '',
       types: [],
       imgList: [],
-      abs: '',
+      tips: '',
+      abs: '寻找失物',
+      place: '',
+      contact: '',
       limit: 5,
-      size: 0
-
+      size: 0,
+      titleState: false,
+      detailsState: false,
+      placeState: false,
+      contactState: false
     }
   },
   created: function () {
     this.$store.dispatch('runAfterLogin')
   },
+  watch: {
+    title: function (newVal, oldVal) {
+      if (newVal === '') {
+        alert('标题不能为空')
+        console.log('title wrong')
+        this.placeState = false
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      } else {
+        console.log('title correct')
+        this.titleState = true
+        console.log(this.title)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      }
+    },
+    details: function (newVal, oldVal) {
+      if (newVal === '') {
+        alert('描述不能为空')
+        console.log('details wrong')
+        this.detailsState = false
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      } else {
+        console.log('details correct')
+        this.detailsState = true
+        console.log(this.details)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      }
+    },
+    place: function (newVal, oldVal) {
+      if (newVal === '') {
+        alert('地点不能为空')
+        console.log('place wrong')
+        this.placeState = false
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      } else {
+        console.log('place correct')
+        this.placeState = true
+        console.log(this.place)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      }
+    },
+    contact: function (newVal, oldVal) {
+      if (!/^1\d{10}$/.test(newVal)) {
+        console.log('contact wrong')
+        this.contactState = false
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      } else {
+        console.log('contact correct')
+        this.contactState = true
+        console.log(this.contact)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+      }
+    }
+  },
   methods: {
+    // tip control
+    tipChoose () {
+      var radio = document.getElementsByName('type')
+      for (var i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
+          console.log(radio[i].id)
+          var checkId = radio[i].id
+        }
+      }
+      if (checkId === 'type-lost') {
+        this.tips = '你选择了“寻找失物”，这代表你丢失了某样东西'
+        console.log(this.tips)
+      }
+      if (checkId === 'type-find') {
+        this.tips = '你选择了“寻找失主”，这代表你找到了某样东西'
+        console.log(this.tips)
+      }
+    },
+    // image upload
     chooseType () {
       document.getElementById('upload_file').click()
     },
@@ -188,7 +268,66 @@ export default {
         this.Items=res.body;
       })
     } */
+
+    // form check
+
+    /* checkForm: function () {
+      var Otitle = document.getElementsByName('title')
+      var Odetails = document.getElementsByName('details')
+      var Oplace = document.getElementsByName('place')
+      var Ocontact = document.getElementsByName('contact')
+      var titleState = false
+      var detailsState = false
+      var placeState = false
+      var contactState = false
+      Otitle.onblur = function () {
+        if (this.title === '') {
+          alert('标题不能为空')
+          console.log('title wrong')
+          titleState = false
+        } else {
+          console.log('title correct')
+          titleState = true
+        }
+        check()
+      }
+      Odetails.onblur = function () {
+        if (this.details === '') {
+          alert('描述不能为空')
+          console.log('details wrong')
+          detailsState = false
+        } else {
+          console.log('details correct')
+          detailsState = true
+        }
+        check()
+      }
+      Oplace.onblur = function () {
+        if (this.place === '') {
+          alert('地点不能为空')
+          console.log('place wrong')
+          placeState = false
+        } else {
+          console.log('place correct')
+          placeState = true
+        }
+        check()
+      }
+      Ocontact.onblur = function () {
+        if (!/[1-9][0-9]{4,}/.test(this.contact)) {
+          alert('联系方式不正确')
+          console.log('contact wrong')
+          contactState = false
+        } else {
+          console.log('contact correct')
+          contactState = true
+        }
+        check()
+      }
+
+    } */
   },
+
   mounted: function () {
     // this.showDetails()
   },
