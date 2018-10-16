@@ -7,7 +7,8 @@ const apiMap = {
   'detail': '/detail/{id}',
   'mine/lost': '',
   'mine/found': '',
-  'mine/unfinished': ''
+  'mine/unfinished': '',
+  'add/lists': '/api/add/lists'
 }
 
 module.exports = apiMap

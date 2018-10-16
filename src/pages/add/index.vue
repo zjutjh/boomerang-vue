@@ -25,11 +25,11 @@
           <div class="content column">
             <div class="radio-group inline" @change="tipChoose">
               <div class="radio-item" >
-                <input type="radio" id="type-lost" name="type" value="寻找失物" v-model="abs" checked/>
+                <input type="radio" id="type-lost" name="type" value="0" v-model="abs" checked/>
                 <label for="type-lost">寻找失物</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="type-find" name="type" value="寻找失主" v-model="abs"/>
+                <input type="radio" id="type-find" name="type" value="1" v-model="abs"/>
                 <label for="type-find">寻找失主</label>
               </div>
             </div>
@@ -44,8 +44,10 @@
           <div class="label">分类</div>
           <div class="content">
             <div class="touchable-input">
-              <select>
-                <option v-for="(item,index) in types" :key="index">{{types}}</option>
+              <select v-model="selected">
+                <option>请选择</option>
+                <option v-for="item in items" :key="item.index">{{item.type}}</option>
+                <!--<input placeholder="其他" v-model="Else"/>-->
               </select>
             </div>
           </div>
@@ -83,12 +85,13 @@
         </div>
       </div>
 
-      <div v-bind:class="[button , { disable: isActive }]">发帖</div>
+      <div v-bind:class="[button , { disable: isActive }]" @click="upDate">发帖</div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'add',
   components: {
@@ -99,16 +102,25 @@ export default {
       button: 'u-button',
       title: '',
       details: '',
-      types: [],
+      items: [
+        {type: '校园卡', index: 1},
+        {type: '雨伞', index: 2},
+        {type: '钥匙', index: 3},
+        {type: '图书', index: 4},
+        {type: '其它', index: 5}
+      ],
+      selected: '',
+      Else: '',
       imgList: [],
       tips: '',
-      abs: '寻找失物',
+      abs: '0',
       place: '',
       contact: '',
       limit: 5,
       size: 0,
       titleState: false,
       detailsState: false,
+      itemsState: false,
       placeState: false,
       contactState: false
     }
@@ -119,57 +131,75 @@ export default {
   watch: {
     title: function (newVal, oldVal) {
       if (newVal === '') {
-        alert('标题不能为空')
+        // alert('标题不能为空')
+        this.showToast('标题不能为空')
         console.log('title wrong')
         this.placeState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       } else {
         console.log('title correct')
         this.titleState = true
         console.log(this.title)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       }
     },
     details: function (newVal, oldVal) {
       if (newVal === '') {
-        alert('描述不能为空')
+        this.showToast('描述不能为空')
         console.log('details wrong')
         this.detailsState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       } else {
         console.log('details correct')
         this.detailsState = true
         console.log(this.details)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       }
+    },
+    selected: function (newVal, oldVal) {
+      if (this.selected !== '') {
+        this.itemsState = true
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
+      } else {
+        this.itemsState = false
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
+      }
+      console.log(this.selected)
     },
     place: function (newVal, oldVal) {
       if (newVal === '') {
-        alert('地点不能为空')
+        this.showToast('地点不能为空')
         console.log('place wrong')
         this.placeState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       } else {
         console.log('place correct')
         this.placeState = true
         console.log(this.place)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       }
     },
     contact: function (newVal, oldVal) {
       if (!/^1\d{10}$/.test(newVal)) {
         console.log('contact wrong')
         this.contactState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       } else {
         console.log('contact correct')
         this.contactState = true
         console.log(this.contact)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState)
+        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
       }
     }
   },
   methods: {
+    // import toast
+    ...mapMutations([
+      'showToast',
+      'showLoading',
+      'hideLoading',
+      'hideToast'
+    ]),
     // tip control
     tipChoose () {
       var radio = document.getElementsByName('type')
@@ -229,7 +259,7 @@ export default {
       if (this.limit !== undefined && this.limit < 0) return // 总大小
       this.size = this.size + file.size // 判断是否为图片文件
       if (file.type.indexOf('image') === -1) {
-        this.message('请选择图片文件')
+        this.showToast('请选择图片文件')
       } else {
         let reader = new FileReader()
         let image = new Image()
@@ -261,7 +291,34 @@ export default {
       this.size = this.size - this.imgList[index].file.size // 总大小
       this.imgList.splice(index, 1)
       if (this.limit !== undefined) this.limit = 6 - this.imgList.length
-      this.message('移除成功', 'el-icon-check')
+      this.showToast('移除成功')
+    },
+    // 上传文件
+    async upDate () {
+      let formData = new FormData()
+      formData.append('title', this.title)
+      formData.append('description', this.details)
+      let imgList = this.imgList
+      if (imgList.length > 0) {
+        for (var i = 0; i <= imgList.length; i++) {
+          formData.append('image', imgList[i])
+        }
+      }
+      formData.append('type', this.abs)
+      formData.append('item', this.selected)
+      formData.append('lost_place', this.place)
+      formData.append('contact', this.contact)
+      const option = {
+        method: 'post',
+        body: formData
+      }
+      fetch(this.API('add/lists'), option).then(function (res) {
+        console.log(res)
+        this.showToast('发布成功！')
+        return res.json()
+      }).catch((err) => {
+        console.log('err', err)
+      })
     }
     /* showDetails:function () {
       this.&http.get().then(function (res) {
