@@ -11,7 +11,7 @@ for (let key of Object.keys(apiMap)) {
 
 module.exports = function (app) {
   Object.keys(apiMap).forEach((wildcard) => {
-    app.get('/mock/' + wildcard, function (req, res) {
+    app.all('/mock/' + wildcard, function (req, res) {
       // const pathname = req._parsedUrl.pathname
       // const apiName = apiMap[wildcard]
       const mockFile = path.resolve(mockPath, wildcard + '.js')

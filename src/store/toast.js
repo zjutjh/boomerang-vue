@@ -14,7 +14,7 @@ export const mutations = {
     if (!title) {
       return false
     }
-    state.status = payload.status || 'error'
+    state.status = payload.status
     state.show = true
     state.title = title
     state.duration = payload.duration || 1500
