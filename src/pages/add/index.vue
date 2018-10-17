@@ -23,7 +23,7 @@
         <div class="form-item huge">
           <div class="label">类型</div>
           <div class="content column">
-            <div class="radio-group inline" @change="tipChoose">
+            <div class="radio-group inline">
               <div class="radio-item" >
                 <input type="radio" id="type-lost" name="type" value="0" v-model="abs" checked/>
                 <label for="type-lost">寻找失物</label>
@@ -33,8 +33,11 @@
                 <label for="type-find">寻找失主</label>
               </div>
             </div>
-            <div class="tip">
-              {{tips}}
+            <div class="tip" v-if="abs === '0'">
+              你选择了“寻找失物”，这代表你丢失了某样东西
+            </div>
+            <div class="tip" v-else>
+              你选择了“寻找失主”，这代表你找到了某样东西
             </div>
           </div>
         </div>
@@ -85,7 +88,7 @@
         </div>
       </div>
 
-      <div v-bind:class="[button , { disable: isActive }]" @click="upDate">发帖</div>
+      <div v-bind:class="button" @click="upDate">发帖</div>
     </div>
   </div>
 </template>
@@ -128,70 +131,6 @@ export default {
   created: function () {
     this.$store.dispatch('runAfterLogin')
   },
-  watch: {
-    title: function (newVal, oldVal) {
-      if (newVal === '') {
-        // alert('标题不能为空')
-        this.showToast('标题不能为空')
-        console.log('title wrong')
-        this.placeState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      } else {
-        console.log('title correct')
-        this.titleState = true
-        console.log(this.title)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      }
-    },
-    details: function (newVal, oldVal) {
-      if (newVal === '') {
-        this.showToast('描述不能为空')
-        console.log('details wrong')
-        this.detailsState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      } else {
-        console.log('details correct')
-        this.detailsState = true
-        console.log(this.details)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      }
-    },
-    selected: function (newVal, oldVal) {
-      if (this.selected !== '') {
-        this.itemsState = true
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      } else {
-        this.itemsState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      }
-      console.log(this.selected)
-    },
-    place: function (newVal, oldVal) {
-      if (newVal === '') {
-        this.showToast('地点不能为空')
-        console.log('place wrong')
-        this.placeState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      } else {
-        console.log('place correct')
-        this.placeState = true
-        console.log(this.place)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      }
-    },
-    contact: function (newVal, oldVal) {
-      if (!/^1\d{10}$/.test(newVal)) {
-        console.log('contact wrong')
-        this.contactState = false
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      } else {
-        console.log('contact correct')
-        this.contactState = true
-        console.log(this.contact)
-        this.isActive = !(this.titleState && this.detailsState && this.placeState && this.contactState && this.itemsState)
-      }
-    }
-  },
   methods: {
     // import toast
     ...mapMutations([
@@ -200,24 +139,6 @@ export default {
       'hideLoading',
       'hideToast'
     ]),
-    // tip control
-    tipChoose () {
-      var radio = document.getElementsByName('type')
-      for (var i = 0; i < radio.length; i++) {
-        if (radio[i].checked) {
-          console.log(radio[i].id)
-          var checkId = radio[i].id
-        }
-      }
-      if (checkId === 'type-lost') {
-        this.tips = '你选择了“寻找失物”，这代表你丢失了某样东西'
-        console.log(this.tips)
-      }
-      if (checkId === 'type-find') {
-        this.tips = '你选择了“寻找失主”，这代表你找到了某样东西'
-        console.log(this.tips)
-      }
-    },
     // image upload
     chooseType () {
       document.getElementById('upload_file').click()
@@ -296,6 +217,54 @@ export default {
     // 上传文件
     async upDate () {
       let formData = new FormData()
+      if (this.title === '') {
+        this.showToast('标题不能为空')
+        console.log('title wrong')
+        this.titleState = false
+        return
+      } else {
+        console.log('title correct')
+        this.titleState = true
+        console.log(this.title)
+      }
+      if (this.details === '') {
+        this.showToast('描述不能为空')
+        console.log('details wrong')
+        this.detailsState = false
+        return
+      } else {
+        console.log('details correct')
+        this.detailsState = true
+        console.log(this.details)
+      }
+      if (this.selected !== '') {
+        this.itemsState = true
+        console.log(this.selected)
+      } else {
+        this.itemsState = false
+        this.showToast('请选择分类')
+        return
+      }
+      if (this.place === '') {
+        this.showToast('地点不能为空')
+        console.log('place wrong')
+        this.placeState = false
+        return
+      } else {
+        console.log('place correct')
+        this.placeState = true
+        console.log(this.place)
+      }
+      if (!/^1\d{10}$/.test(this.contact)) {
+        console.log('contact wrong')
+        this.showToast('请输入正确的手机号码')
+        this.contactState = false
+        return
+      } else {
+        console.log('contact correct')
+        this.contactState = true
+        console.log(this.contact)
+      }
       formData.append('title', this.title)
       formData.append('description', this.details)
       let imgList = this.imgList
