@@ -13,9 +13,9 @@
               <i class="delete" @click.stop="deleteImg(index)"></i>
             </li>
           </ul>
-          <div class="input-image-item" @click="chooseType" v-if="imgList.length < 5">
+          <div class="input-image-item" v-on:click="chooseType" v-if="imgList.length < 5">
           </div>
-          <input @change="fileChange($event)" type="file" id="upload_file" multiple style="display: none"/>
+          <input @change="fileChange()" type="file" id="file" ref="files" multiple style="display: none"/>
       </div>
       <div class="form-group">
 
@@ -49,8 +49,7 @@
             <div class="touchable-input">
               <select v-model="selected">
                 <option>请选择</option>
-                <option v-for="item in items" :key="item.index">{{item.type}}</option>
-                <!--<input placeholder="其他" v-model="Else"/>-->
+                <option v-for="item in items" :key="item.index" :source="itemList">{{item.type}}</option>
               </select>
             </div>
           </div>
@@ -88,44 +87,29 @@
         </div>
       </div>
 
-      <div v-bind:class="button" @click="upDate">发帖</div>
+      <div class="u-button" @click="upDate">发帖</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'add',
   components: {
   },
   data () {
     return {
-      isActive: true,
-      button: 'u-button',
       title: '',
       details: '',
-      items: [
-        {type: '校园卡', index: 1},
-        {type: '雨伞', index: 2},
-        {type: '钥匙', index: 3},
-        {type: '图书', index: 4},
-        {type: '其它', index: 5}
-      ],
+      items: [],
       selected: '',
-      Else: '',
       imgList: [],
-      tips: '',
       abs: '0',
       place: '',
       contact: '',
       limit: 5,
-      size: 0,
-      titleState: false,
-      detailsState: false,
-      itemsState: false,
-      placeState: false,
-      contactState: false
+      size: 0
     }
   },
   created: function () {
@@ -137,16 +121,17 @@ export default {
       'showToast',
       'showLoading',
       'hideLoading',
-      'hideToast'
+      'hideToast',
+      'updateAddItemList'
     ]),
     // image upload
     chooseType () {
-      document.getElementById('upload_file').click()
+      this.$refs.files.click()
     },
-    fileChange (el) {
-      if (!el.target.files[0].size) return
-      this.fileList(el.target)
-      el.target.value = ''
+    fileChange () {
+      if (!this.$refs.files.files[0].size) return
+      this.fileList(this.$refs.files)
+      this.$refs.files.value = ''
     },
     fileList (fileList) {
       let files = fileList.files
@@ -219,51 +204,23 @@ export default {
       let formData = new FormData()
       if (this.title === '') {
         this.showToast('标题不能为空')
-        console.log('title wrong')
-        this.titleState = false
         return
-      } else {
-        console.log('title correct')
-        this.titleState = true
-        console.log(this.title)
       }
       if (this.details === '') {
         this.showToast('描述不能为空')
-        console.log('details wrong')
-        this.detailsState = false
         return
-      } else {
-        console.log('details correct')
-        this.detailsState = true
-        console.log(this.details)
       }
-      if (this.selected !== '') {
-        this.itemsState = true
-        console.log(this.selected)
-      } else {
-        this.itemsState = false
+      if (this.selected === '') {
         this.showToast('请选择分类')
         return
       }
       if (this.place === '') {
         this.showToast('地点不能为空')
-        console.log('place wrong')
-        this.placeState = false
         return
-      } else {
-        console.log('place correct')
-        this.placeState = true
-        console.log(this.place)
       }
       if (!/^1\d{10}$/.test(this.contact)) {
-        console.log('contact wrong')
         this.showToast('请输入正确的手机号码')
-        this.contactState = false
         return
-      } else {
-        console.log('contact correct')
-        this.contactState = true
-        console.log(this.contact)
       }
       formData.append('title', this.title)
       formData.append('description', this.details)
@@ -289,75 +246,17 @@ export default {
         console.log('err', err)
       })
     }
-    /* showDetails:function () {
-      this.&http.get().then(function (res) {
-        this.Items=res.body;
-      })
-    } */
-
-    // form check
-
-    /* checkForm: function () {
-      var Otitle = document.getElementsByName('title')
-      var Odetails = document.getElementsByName('details')
-      var Oplace = document.getElementsByName('place')
-      var Ocontact = document.getElementsByName('contact')
-      var titleState = false
-      var detailsState = false
-      var placeState = false
-      var contactState = false
-      Otitle.onblur = function () {
-        if (this.title === '') {
-          alert('标题不能为空')
-          console.log('title wrong')
-          titleState = false
-        } else {
-          console.log('title correct')
-          titleState = true
-        }
-        check()
-      }
-      Odetails.onblur = function () {
-        if (this.details === '') {
-          alert('描述不能为空')
-          console.log('details wrong')
-          detailsState = false
-        } else {
-          console.log('details correct')
-          detailsState = true
-        }
-        check()
-      }
-      Oplace.onblur = function () {
-        if (this.place === '') {
-          alert('地点不能为空')
-          console.log('place wrong')
-          placeState = false
-        } else {
-          console.log('place correct')
-          placeState = true
-        }
-        check()
-      }
-      Ocontact.onblur = function () {
-        if (!/[1-9][0-9]{4,}/.test(this.contact)) {
-          alert('联系方式不正确')
-          console.log('contact wrong')
-          contactState = false
-        } else {
-          console.log('contact correct')
-          contactState = true
-        }
-        check()
-      }
-
-    } */
   },
 
-  mounted: function () {
-    // this.showDetails()
+  mounted: async function () {
+    const res = await this.fetch(this.API('add/lists'))
+    this.updateAddItemList(this.getValue(res, 'data.items', null))
   },
   computed: {
+    // 使用对象展开运算符将 state 混入 computed 对象中
+    ...mapState({
+      itemList: (state) => state.find.itemList
+    })
   }
 }
 </script>

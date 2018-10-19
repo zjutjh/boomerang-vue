@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as tabbar from '../pages/tabbar/store'
+import * as add from '../pages/add/store'
 import * as index from '../pages/index/store'
 import * as lost from '../pages/lost/store'
 import * as find from '../pages/find/store'
@@ -23,6 +24,7 @@ const store = new Vuex.Store({
     auth,
     toast,
     tabbar,
+    add,
     index,
     lost,
     find,
