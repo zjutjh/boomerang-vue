@@ -10,7 +10,7 @@ export const getters = {
 
 export const mutations = {
   updateAddItemList: (state, payload) => {
-    state.payload = payload
+    state.itemList = payload
   }
 }
 

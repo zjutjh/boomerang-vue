@@ -49,7 +49,7 @@
             <div class="touchable-input">
               <select v-model="selected">
                 <option>请选择</option>
-                <option v-for="item in items" :key="item.index" :source="itemList">{{item.type}}</option>
+                <option v-for="item in itemList" :key="item.index">{{item.type}}</option>
               </select>
             </div>
           </div>
