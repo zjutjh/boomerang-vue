@@ -13,7 +13,7 @@ module.exports = function (req) {
           'images': [ // 图片
             '//up.enterdesk.com/edpic_source/59/4f/e8/594fe8bd99b7b1c23bee38dd1b88fda2.jpg'
           ],
-          'lost_type': 0, // 失物
+          'lost_type': 1, // 招领
           'type': { // 由type_id查询而来
             'id': 1,
             'name': '校园卡',

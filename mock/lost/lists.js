@@ -11,6 +11,7 @@ module.exports = function (req) {
           'description': '掉在洗衣房了，很着急，求好心人', // 描述
           'lost_place': '西十五洗衣房', // 丢失地点
           'images': [ // 图片
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
             '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
           'lost_type': 0, // 失物
@@ -38,9 +39,10 @@ module.exports = function (req) {
           'description': '葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？',
           'lost_place': '西十五洗衣房',
           'images': [
-            '//up.enterdesk.com/edpic/a3/86/a7/a386a7f24f821ddf30fa3df7db351af7.jpg'
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
-          'lost_type': 1, // 招领
+          'lost_type': 0, // 失物
           'type': { // 由type_id查询而来
             'id': 4,
             'name': '其他',
@@ -65,6 +67,7 @@ module.exports = function (req) {
           'description': '掉在洗衣房了，很着急，求好心人', // 描述
           'lost_place': '西十五洗衣房', // 丢失地点
           'images': [ // 图片
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
             '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
           'lost_type': 0, // 失物
@@ -92,9 +95,10 @@ module.exports = function (req) {
           'description': '葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？',
           'lost_place': '西十五洗衣房',
           'images': [
-            '//up.enterdesk.com/edpic_source/62/7a/6b/627a6ba1dd7bf82738c85bf6660d0a39.jpg'
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
-          'lost_type': 1, // 招领
+          'lost_type': 0, // 失物
           'type': { // 由type_id查询而来
             'id': 4,
             'name': '其他',
@@ -119,6 +123,7 @@ module.exports = function (req) {
           'description': '掉在洗衣房了，很着急，求好心人', // 描述
           'lost_place': '西十五洗衣房', // 丢失地点
           'images': [ // 图片
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
             '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
           'lost_type': 0, // 失物
@@ -146,9 +151,10 @@ module.exports = function (req) {
           'description': '葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？',
           'lost_place': '西十五洗衣房',
           'images': [
-            '//up.enterdesk.com/edpic_source/62/7a/6b/627a6ba1dd7bf82738c85bf6660d0a39.jpg'
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
-          'lost_type': 1, // 招领
+          'lost_type': 0, // 失物
           'type': { // 由type_id查询而来
             'id': 4,
             'name': '其他',
@@ -173,6 +179,7 @@ module.exports = function (req) {
           'description': '掉在洗衣房了，很着急，求好心人', // 描述
           'lost_place': '西十五洗衣房', // 丢失地点
           'images': [ // 图片
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
             '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
           'lost_type': 0, // 失物
@@ -200,9 +207,10 @@ module.exports = function (req) {
           'description': '葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？',
           'lost_place': '西十五洗衣房',
           'images': [
-            '//up.enterdesk.com/edpic_source/62/7a/6b/627a6ba1dd7bf82738c85bf6660d0a39.jpg'
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
-          'lost_type': 1, // 招领
+          'lost_type': 0, // 失物
           'type': { // 由type_id查询而来
             'id': 4,
             'name': '其他',
@@ -227,6 +235,7 @@ module.exports = function (req) {
           'description': '掉在洗衣房了，很着急，求好心人', // 描述
           'lost_place': '西十五洗衣房', // 丢失地点
           'images': [ // 图片
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
             '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
           'lost_type': 0, // 失物
@@ -254,9 +263,10 @@ module.exports = function (req) {
           'description': '葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？葫芦娃塑料桶，是哪个人的？',
           'lost_place': '西十五洗衣房',
           'images': [
-            '//up.enterdesk.com/edpic/a3/86/a7/a386a7f24f821ddf30fa3df7db351af7.jpg'
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg',
+            '//up.enterdesk.com/edpic_source/55/34/ac/5534acffb3f7e6d00de9f40176e68cd9.jpg'
           ],
-          'lost_type': 1, // 招领
+          'lost_type': 0, // 失物
           'type': { // 由type_id查询而来
             'id': 4,
             'name': '其他',
@@ -274,7 +284,7 @@ module.exports = function (req) {
           'contact_uno': '',
           'created_at': 'xxxx-xx-xx xx:xx:xx',
           'updated_at': 'xxxx-xx-xx xx:xx:xx'
-        },
+        }
       ]
     }
   }
