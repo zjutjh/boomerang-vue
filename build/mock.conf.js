@@ -11,7 +11,7 @@ const mockPath = path.join('./mock')
 // }
 
 module.exports = function (app) {
-  app.get('/mock/*', function (req, res) {
+  app.all('/mock/*', function (req, res) {
     if (req.url.match(/^\/mock\//)) {
       const pathname = url.parse(req.url).pathname
       const mockFile = path.resolve(mockPath, pathname.replace(/^\/mock\//, '') + '.js')

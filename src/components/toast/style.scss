@@ -18,23 +18,28 @@
 .ui-status-cnt {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   text-align: center;
   background: rgba(0, 0, 0, 0.7);
   border-radius: .5rem;
-  width: 12rem;
-  min-height: 12rem;
+  max-width: 80%;
+  padding: 1.6rem 3rem;
+  //min-height: 12rem;
 
   .iconfont {
-    display: block;
+    width: 100%;
+    display: inline-block;
     font-size: 1.56rem;
+    margin-bottom: 1.2rem;
   }
   .content {
-    margin-top: 1.2rem;
     font-size: 1.3rem;
     line-height: 1.8rem;
     color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 .icon-loading-dark {
