@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'tab',
+  name: 'tab-test',
   data () {
     return {
     }
