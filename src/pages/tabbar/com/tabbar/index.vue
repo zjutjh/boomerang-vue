@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'tabbar',
+  name: 'tabbar-test',
   data () {
     return {
     }
